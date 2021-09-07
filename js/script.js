@@ -1,22 +1,5 @@
 
-let sabonetes = [
-    {sabonete: "detox", quantidade:0, "valor": 14},
-    {sabonete: "suavedia", quantidade:0, "valor": 9},
-    {sabonete: "porcelana", quantidade:0, "valor": 14},
-    {sabonete: "maciapele", quantidade:0, "valor": 11},
-    {sabonete: "sedosapele", quantidade:0, "valor": 12},
-    {sabonete: "aclara", quantidade:0, "valor": 11}
-];
-
-let revendedores = [
-    {nome: "Lucas", cep:"58706362", celular:"5583999477468"}
-]
-
-
-
 $(function() {
-    atualizaValores();
-
     $("#cep-destino").mask("99.999-999");
 
     $("body").on("click","#calcular", async () => {
@@ -24,39 +7,6 @@ $(function() {
         let lista = await axios.get("https://melhorenvio.com.br/api/v2/calculator?from=58057133&to="+ cep + parseCaixaDimensoes() + "&insurance_value="+ valorTotalSabonetes() +"&services=1,2,15,16,17,23,24")
         console.log(lista);
         preencherTabela(lista.data);
-    })
-
-    $("body").on("click",".mais", (e) => {
-        e.preventDefault();
-        let target = e.target.closest('[data-sab]');
-        console.log($(target).data('sab'));
-
-        sabonetes = sabonetes.map((sabonete) => {
-            if(sabonete.sabonete === $(target).data('sab')) {
-                sabonete.quantidade++;
-                return sabonete;
-            }
-            return sabonete;
-        });
-        atualizaValores();
-    })
-
-    $("body").on("click",".menos", (e) => {
-        e.preventDefault();
-        let target = e.target.closest('[data-sab]');
-        console.log($(target).data('sab'));
-
-        sabonetes = sabonetes.map((sabonete) => {
-            if(sabonete.sabonete === $(target).data('sab')) {
-                let quantidadeSabonetes = sabonete.quantidade;
-                if(quantidadeSabonetes > 0) {
-                    sabonete.quantidade--;
-                }
-                return sabonete;
-            }
-            return sabonete;
-        });
-        atualizaValores();
     })
 });
 
@@ -98,24 +48,9 @@ function preencherTabela(lista) {
 		
 }
 
-function atualizaValores() {
-    sabonetes.map((sabonete) => {
-        $("#" + sabonete.sabonete).html(sabonete.quantidade);
-    })
-
-    $("#totalsabonetes").html(totalSabonetes() + " Sabonetes")
-}
-
-function totalSabonetes(){
-    let total = sabonetes.reduce(function(total, sabonete)  {
-       return total+sabonete.quantidade;
-    }, 0)
-    return total;
-}
-
 function parseCaixaDimensoes(){
     let caixa = {with: 0, weight:0, height : 0, length:0};
-    let totalSab = totalSabonetes();
+    let totalSab =  $("#quantidade-sabonetes").val();
     let pesoSabonetes = (totalSab * 63.65)/1000;   // PESO
     // X Y Z equivale as 3 dimensÃµes da caixa, em que nesse caso o sabonete equivale a 1 de volume
     // Ex 2 sabonetes serÃ¡ X = 2, Y = 1, Z = 1
@@ -151,18 +86,7 @@ function parseCaixaDimensoes(){
 }
 
 function valorTotalSabonetes() {
-    /*
-    let totalValor = sabonetes.reduce(function(total, sabonete)  {
-        if(sabonete.quantidade > 0) {
-            return total+sabonete.valor*sabonete.quantidade;
-        }
-        return total;
-     }, 0)
-     */
-
     let quantidadeTotal = $("#quantidade-sabonetes").val();
 
     return quantidadeTotal * 14;
 }
-
-console.log(totalSabonetes())
