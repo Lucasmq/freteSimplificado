@@ -1,0 +1,250 @@
+html {
+    background: #E5E5E5; 
+}
+
+body {
+    font-size: 100%;
+    margin: auto;
+    max-width: 1280px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    margin: 0px;
+    padding: 0px;
+}
+
+button {
+    margin: 0px;
+    padding: 0px; 
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+#titulo {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#titulo > p {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 95px;
+    color: #4F4F4F;
+}
+
+#produtos-container {
+    width: 100%;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#container {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#container-label {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: #4F4F4F;
+}
+
+#quantidade-sabonetes {
+    /* width: 450px;/ */
+    /* height: 103px; */
+    background: none;
+    width: 100%;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 47px;
+    align-items: center;
+    border: none;
+    text-align: center;
+    color: #4F4F4F;
+    border-radius: 15px;
+
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#cep-destino {
+    /* width: 450px;/ */
+    /* height: 103px; */
+    background: none;
+    width: 100%;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 47px;
+    align-items: center;
+    border: none;
+    text-align: center;
+    color: #4F4F4F;
+    border-radius: 15px;
+
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#calcular {
+    background: #2F80ED;
+    box-shadow: -15px 33px 44px -22px rgba(105, 105, 114, 0.3);
+    border-radius: 10px;
+    height: 64px;
+    border: none;
+
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+}
+
+
+
+input:focus {
+    outline: none;
+}
+
+
+
+button:focus {
+    outline: none;
+}
+
+td > img {
+    width: 100px;
+    height: 21px;
+}
+
+table{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+
+tbody {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+thead {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+tr {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 84px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.descricao-frete {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.descricao-frete > p {
+    padding: 5px;
+}
+
+td {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    width: 100%;
+    text-align: center;
+    color: #4F4F4F;
+}
+
+.valor-modalidade {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #2F80ED;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 500px)  {
+
+    #titulo > p {
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 95px;
+        color: #4F4F4F;
+    }
+     
+}
